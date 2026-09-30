@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-surface-muted text-slate-900 antialiased font-sans;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(233, 30, 140, 0.04), transparent);
+  min-height: 100vh;
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-surface-border rounded-2xl shadow-card;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-slate-900 text-white hover:bg-slate-800 shadow-sm;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-slate-700 border border-surface-border hover:bg-slate-50;
+  }
+  .btn-danger {
+    @apply btn bg-red-50 text-red-600 border border-red-100 hover:bg-red-100;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-600 hover:bg-slate-100;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+  .input {
+    @apply w-full h-11 rounded-xl border border-surface-border bg-white px-3.5 text-sm
+      outline-none transition placeholder:text-slate-400
+      focus:border-slate-400 focus:ring-4 focus:ring-slate-100;
+  }
+  .label {
+    @apply flex flex-col gap-1.5 text-xs font-semibold text-slate-500;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-debit {
+    @apply badge bg-red-50 text-red-600;
+  }
+  .badge-credit {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+  .coin-badge {
+    @apply inline-flex items-center gap-1 rounded-full bg-amber-50 text-amber-800
+      px-2.5 py-0.5 text-xs font-bold border border-amber-100;
+  }
+  .stat-card {
+    @apply card p-5 relative overflow-hidden;
+  }
+  .table-wrap {
+    @apply overflow-x-auto -mx-1;
+  }
+  table.data {
+    @apply w-full text-sm min-w-[720px];
+  }
+  table.data th {
+    @apply text-left text-[11px] font-bold uppercase tracking-wider text-slate-400
+      px-3 py-3 border-b border-surface-border;
+  }
+  table.data td {
+    @apply px-3 py-3 border-b border-surface-border align-middle;
+  }
+  table.data tr:last-child td {
+    @apply border-b-0;
+  }
+}

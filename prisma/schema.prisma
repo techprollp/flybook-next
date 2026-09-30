@@ -1,0 +1,43 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id              Int      @id @default(autoincrement())
+  billName        String
+  memberName      String
+  amount          Float
+  transactionType String
+  transactionDate String
+  transactionTime String?
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([transactionDate])
+  @@index([transactionType])
+  @@map("transactions")
+}
+
+model MemberCoin {
+  id            Int      @id @default(autoincrement())
+  memberName    String
+  coinDate      String
+  todayPayment  Float    @default(0)
+  oldPayment    Float    @default(0)
+  totalPayment  Float    @default(0)
+  coinBalance   Float    @default(0)
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([coinDate])
+  @@index([memberName])
+  @@map("member_coins")
+}
