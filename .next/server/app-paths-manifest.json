@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/bills/route": "app/api/bills/route.js",
+  "/api/coins/route": "app/api/coins/route.js",
+  "/api/pdf/bills/route": "app/api/pdf/bills/route.js",
+  "/api/pdf/coins/route": "app/api/pdf/coins/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/coins/page": "app/coins/page.js",
+  "/reports/page": "app/reports/page.js"
+}
